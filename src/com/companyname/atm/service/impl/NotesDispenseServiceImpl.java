@@ -13,7 +13,10 @@ import com.companyname.atm.model.Denominations;
 import com.companyname.atm.service.NotesDispenseService;
 import com.companyname.atm.service.NotesDispenseServiceException;
 
-//TODO Comment this class
+/**
+ * This class represents method calls that interacts with Bank Account Data Store
+ * @author Michael McGill
+ */
 
 public class NotesDispenseServiceImpl implements NotesDispenseService {
 	final String CLASSNAME = this.getClass().getName();
@@ -56,6 +59,11 @@ public class NotesDispenseServiceImpl implements NotesDispenseService {
 			// Then, if applicable will dispense 5 denominations & set the result on the <code>Denominations</code> object
 			dispensed5s = getDispensedBankNote(notesInventoryDataStore.getBankNote("5"));
 			denominations.setNumberOf5s(dispensed5s);
+			
+			// If we haven't dispensed everything - then there is not ennough notes to cover the transaction
+			if(dispenseRemainder.compareTo(BigDecimal.ZERO) > 0) {
+				throw new NotesDispenseServiceException(ErrorValues.DENOMINATIONS_INSUFFICIENT_INVENTORY_CODE);
+			}
 			
 		} catch (Exception ex) {
 			throw new NotesDispenseServiceException(ErrorValues.DENOMINATIONS_DISPENSE_CODE);

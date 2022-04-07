@@ -10,6 +10,7 @@ import com.companyname.atm.service.BankAccountServiceException;
 
 /**
  * This class represents method calls that interacts with Bank Account Data Store
+ * @author Michael McGill
  */
 public class BankAccountServiceImpl implements BankAccountService {
 	final String CLASSNAME = this.getClass().getName();

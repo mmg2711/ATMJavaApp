@@ -18,6 +18,7 @@ public final class ErrorValues {
 	public static final int INCORRECT_WITHDRAWAL_AMOUNT_ERROR_CODE = 442;
 	public static final int INSUFFICIENT_FUNDS_ERROR_CODE = 443;
 	public static final int DENOMINATIONS_DISPENSE_CODE = 450;
+	public static final int DENOMINATIONS_INSUFFICIENT_INVENTORY_CODE = 450;
 	
 	// General return messages
 	public static final String ERROR_MESSAGE = "error";
@@ -36,6 +37,7 @@ public final class ErrorValues {
 		errorCodes.put(ErrorValues.INCORRECT_WITHDRAWAL_AMOUNT_ERROR_CODE, "Withdrawal amount is incorrect. Please input a value in multiples of 10.");
 		errorCodes.put(ErrorValues.INSUFFICIENT_FUNDS_ERROR_CODE, "Insufficient funds to withdraw this amount!.");
 		errorCodes.put(ErrorValues.DENOMINATIONS_DISPENSE_CODE, "Problem trying to dispense Notes!.");
+		errorCodes.put(ErrorValues.DENOMINATIONS_INSUFFICIENT_INVENTORY_CODE, "Not enough notes in this ATM to cover the withdrawal!.");
 	}
 	
 	public static String getErrorMessage(int code) {
